@@ -107,6 +107,10 @@ export default function OrderDetailDialog({
     <Checkbox key={extraItem.id} label={`${extraItem.name} ($${extraItem.price})`} name={extraItem.id} onChange={handleFormChange} className='m-0'/>
   ));
 
+  const displayImage = (
+    <Avatar src={categoryItem.image_url ?? '/images/drink.png'} alt={categoryItem.name} size='xxl' />
+  )
+
 
   return (
     <Dialog
@@ -123,8 +127,8 @@ export default function OrderDetailDialog({
         //  + ' flex-col'}
       }
       <DialogHeader className='bg-green-50 '>
-        <div className='relative flex items-center'>
-          <Avatar src='/images/drink.png' alt={categoryItem.name} size='xxl' />
+        <div className='relative flex items-center gap-4'>
+          {displayImage}
           <div className='flex flex-col'>
             <Typography variant='h6'>{categoryItem.name}</Typography>
             <Typography variant='paragraph' color='gray'>
