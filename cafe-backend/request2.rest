@@ -1,0 +1,267 @@
+###
+//login customer
+POST http://localhost:4000/api/v1/auth
+Content-Type: application/json
+
+{
+  "email": "soonmyung.hwang.cohort225@gmail.com",
+  "pwd" : "1234",
+  "remember_me": "false"
+}
+
+###
+//logout - update refresh token to ""
+PATCH http://localhost:4000/api/v1/auth/5
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoiVG9tIFRvbTIiLCJlbWFpbCI6InRvbUBnbWFpbC5jb20iLCJyb2xlIjowLCJhZGRyZXNzX2lkIjo1LCJpYXQiOjE2Nzc1NjgwNDksImV4cCI6MTY4MDE2MDA0OX0.gbd7lFsnb_Fu6NaGSKHfQA44aBF9pLoFnOL4kTBr-ow
+ 
+###
+//get profile
+GET http://localhost:4000/api/v1/users/16
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTYsInVzZXJfbmFtZSI6IlNvbXkgSHdhbmciLCJlbWFpbCI6InNvb25teXVuZy5od2FuZy5jb2hvcnQyMjVAZ21haWwuY29tIiwicm9sZSI6MCwiYWRkcmVzc19pZCI6MTYsImlhdCI6MTY3NzcxMjI5NywiZXhwIjoxNjgwMzA0Mjk3fQ.gQ-2RVXdRkhjSH5TgfnJxXV5xpGAwTIKxgPpnFoxuK0
+
+###
+//Register User
+POST http://localhost:4000/api/v1/users
+Content-Type: application/json
+
+{
+  "email": "test5@test.com",
+  "pwd" : "1234",
+  "pwd2": "1234",
+  "first_name": "Test5",
+  "last_name": "Last5",
+  "unit_num": "",
+  "street_num": "",
+  "addr1": "",
+  "addr2": "",
+  "city": "",
+  "state": "",
+  "postal_code": "",
+  "phone": ""
+}
+
+###
+//get profile
+GET http://localhost:4000/api/v1/users/15
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsInVzZXJfbmFtZSI6IlRlc3Q1IExhc3Q1IiwiZW1haWwiOiJ0ZXN0NUB0ZXN0LmNvbSIsImFkZHJlc3NfaWQiOjE1LCJpYXQiOjE2Nzc1NzAwMzEsImV4cCI6MTY3NzU3MTgzMX0.ha2uSZJ9pK8XDC-Px6ZVSNzSG6I7g-hsQJMn5_bBex0
+
+########################################################################
+
+###
+//fetch categories
+GET http://localhost:4000/api/v1/categories
+Content-Type: application/json
+
+###
+//fetch category
+GET http://localhost:4000/api/v1/categories/6
+Content-Type: application/json
+
+###
+//update category
+PATCH http://localhost:4000/api/v1/categories/6
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoiVG9tIFRvbTIiLCJlbWFpbCI6InRvbUBnbWFpbC5jb20iLCJyb2xlIjowLCJhZGRyZXNzX2lkIjo1LCJpYXQiOjE2Nzc2NjMyNzgsImV4cCI6MTY4MDI1NTI3OH0.K7eZMsOvqs_S1W7otK-W7Ag9kYRNpZtIEfB7_hwmGsw
+
+{
+  "description": "Available Daily 7:00am - 3:00pm"
+}
+
+###
+//fetch menu items by category
+GET http://localhost:4000/api/v1/categories/2/menu-items
+Content-Type: application/json
+
+###
+//fetch menu items
+GET http://localhost:4000/api/v1/menu-items
+Content-Type: application/json
+
+###
+//fetch menu item
+GET http://localhost:4000/api/v1/menu-items/3
+Content-Type: application/json
+
+###
+//update menu item
+PATCH http://localhost:4000/api/v1/menu-items/3
+Content-Type: application/json
+enctype: "multipart/form-data"
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoiVG9tIFRvbTIiLCJlbWFpbCI6InRvbUBnbWFpbC5jb20iLCJyb2xlIjowLCJhZGRyZXNzX2lkIjo1LCJpYXQiOjE2Nzc2NjMyNzgsImV4cCI6MTY4MDI1NTI3OH0.K7eZMsOvqs_S1W7otK-W7Ag9kYRNpZtIEfB7_hwmGsw
+
+{
+  "price": "3.50",
+  "popular": false
+}
+
+###
+//fetch extra items
+GET http://localhost:4000/api/v1/extra-items
+Content-Type: application/json
+
+###
+//fetch extra items
+GET http://localhost:4000/api/v1/extra-items/6
+Content-Type: application/json
+
+###
+//update extra items
+PATCH http://localhost:4000/api/v1/extra-items/6
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoiVG9tIFRvbTIiLCJlbWFpbCI6InRvbUBnbWFpbC5jb20iLCJyb2xlIjowLCJhZGRyZXNzX2lkIjo1LCJpYXQiOjE2Nzc2NjMyNzgsImV4cCI6MTY4MDI1NTI3OH0.K7eZMsOvqs_S1W7otK-W7Ag9kYRNpZtIEfB7_hwmGsw
+
+{
+  "price" : "2.30"
+}
+
+###
+//fetch extra items by menu
+GET http://localhost:4000/api/v1/menu-items/8/extra-items
+Content-Type: application/json
+
+###
+//create extra items by menu
+POST http://localhost:4000/api/v1/menu-items/8/extra-items
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoiVG9tIFRvbTIiLCJlbWFpbCI6InRvbUBnbWFpbC5jb20iLCJyb2xlIjowLCJhZGRyZXNzX2lkIjo1LCJpYXQiOjE2Nzc2NjMyNzgsImV4cCI6MTY4MDI1NTI3OH0.K7eZMsOvqs_S1W7otK-W7Ag9kYRNpZtIEfB7_hwmGsw
+
+{
+  "name" : "test extra",
+  "price" : "1.00"
+}
+
+###
+//delete extra item by menu
+DELETE http://localhost:4000/api/v1/menu-items/8/extra-items/32
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoiVG9tIFRvbTIiLCJlbWFpbCI6InRvbUBnbWFpbC5jb20iLCJyb2xlIjowLCJhZGRyZXNzX2lkIjo1LCJpYXQiOjE2Nzc2NjMyNzgsImV4cCI6MTY4MDI1NTI3OH0.K7eZMsOvqs_S1W7otK-W7Ag9kYRNpZtIEfB7_hwmGsw
+
+###
+//create Stripe
+POST http://localhost:4000/api/v1/payment
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoiVG9tIFRvbTIiLCJlbWFpbCI6InRvbUBnbWFpbC5jb20iLCJyb2xlIjowLCJhZGRyZXNzX2lkIjo1LCJpYXQiOjE2Nzc2NTcxNTYsImV4cCI6MTY4MDI0OTE1Nn0.DDmkZ0QSpzwS0uqkX4HRLtOTPCsTgcfyy3Ej6r-meL0
+
+{"amount": 1000}
+
+###
+//get all orders
+GET http://localhost:4000/api/v1/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoiVG9tIFRvbTIiLCJlbWFpbCI6InRvbUBnbWFpbC5jb20iLCJyb2xlIjowLCJhZGRyZXNzX2lkIjo1LCJpYXQiOjE2Nzc2NjMyNzgsImV4cCI6MTY4MDI1NTI3OH0.K7eZMsOvqs_S1W7otK-W7Ag9kYRNpZtIEfB7_hwmGsw
+
+###
+//create order
+POST http://localhost:4000/api/v1/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoiVG9tIFRvbTIiLCJlbWFpbCI6InRvbUBnbWFpbC5jb20iLCJyb2xlIjowLCJhZGRyZXNzX2lkIjo1LCJpYXQiOjE2Nzc2NjMyNzgsImV4cCI6MTY4MDI1NTI3OH0.K7eZMsOvqs_S1W7otK-W7Ag9kYRNpZtIEfB7_hwmGsw
+
+{
+  "user_id": 5,
+  "totalPrice": 41.00,
+  "orderType": 0,
+  "address": null,
+  "deliveryDate": "3/02/2023 09:00:00",
+  "cartItems" : [
+    {
+      "categoryItem": {
+        "id": 1
+      },
+      "extraFormData": {
+        "selectedExtraItems": [{"id": 21}, {"id": 22}],
+        "quantity": 5,
+        "totalPrice": 5.25,
+        "specialNote": ""
+      }
+    }, 
+    {
+        "categoryItem": {
+        "id": 25
+      },
+      "extraFormData": {
+        "selectedExtraItems": [{"id": 6}],
+        "quantity": 1,
+        "totalPrice": 14.75,
+        "specialNote": ""
+      }
+    }
+  ]
+}
+
+###
+//get order 
+GET http://localhost:4000/api/v1/orders/25
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoiVG9tIFRvbTIiLCJlbWFpbCI6InRvbUBnbWFpbC5jb20iLCJyb2xlIjowLCJhZGRyZXNzX2lkIjo1LCJpYXQiOjE2Nzc2NjMyNzgsImV4cCI6MTY4MDI1NTI3OH0.K7eZMsOvqs_S1W7otK-W7Ag9kYRNpZtIEfB7_hwmGsw
+
+###
+//get all user's order history
+GET http://localhost:4000/api/v1/users/5/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoiVG9tIFRvbTIiLCJlbWFpbCI6InRvbUBnbWFpbC5jb20iLCJyb2xlIjowLCJhZGRyZXNzX2lkIjo1LCJpYXQiOjE2Nzc2NjMyNzgsImV4cCI6MTY4MDI1NTI3OH0.K7eZMsOvqs_S1W7otK-W7Ag9kYRNpZtIEfB7_hwmGsw
+
+###
+//get order detail
+GET http://localhost:4000/api/v1/orders/11/extra-items
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcl9uYW1lIjoiVG9tIFRvbTIiLCJlbWFpbCI6InRvbUBnbWFpbC5jb20iLCJyb2xlIjowLCJhZGRyZXNzX2lkIjo1LCJpYXQiOjE2Nzc2NjMyNzgsImV4cCI6MTY4MDI1NTI3OH0.K7eZMsOvqs_S1W7otK-W7Ag9kYRNpZtIEfB7_hwmGsw
+
+
+################################ 
+
+####
+//login admin
+POST http://localhost:4000/api/v1/auth
+Content-Type: application/json
+
+{
+  "email": "admin@cafeapp.com",
+  "pwd": "1234"
+}
+
+###
+// admin: Today's order count
+GET http://localhost:4000/api/v1/admin/order-count
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcl9uYW1lIjoiQWRtaW4gQWRtaW4iLCJlbWFpbCI6ImFkbWluQGNhZmVhcHAuY29tIiwicm9sZSI6MiwiYWRkcmVzc19pZCI6NCwiaWF0IjoxNjc3NjY3Mzk1fQ.4Yr7fqfPzvUsUy_mttvVXdcTGVefFQBL4WIavE6rerM
+Content-Type: application/json
+
+###
+// admin: Today's order count
+GET http://localhost:4000/api/v1/admin/order-count?order_date='3/1/2023'
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcl9uYW1lIjoiQWRtaW4gQWRtaW4iLCJlbWFpbCI6ImFkbWluQGNhZmVhcHAuY29tIiwicm9sZSI6MiwiYWRkcmVzc19pZCI6NCwiaWF0IjoxNjc3NjY3Mzk1fQ.4Yr7fqfPzvUsUy_mttvVXdcTGVefFQBL4WIavE6rerM
+Content-Type: application/json
+
+
+###
+// admin: daily order count for a week
+GET http://localhost:4000/api/v1/admin/order-count/week
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcl9uYW1lIjoiQWRtaW4gQWRtaW4iLCJlbWFpbCI6ImFkbWluQGNhZmVhcHAuY29tIiwicm9sZSI6MiwiYWRkcmVzc19pZCI6NCwiaWF0IjoxNjc3NjY3Mzk1fQ.4Yr7fqfPzvUsUy_mttvVXdcTGVefFQBL4WIavE6rerM
+Content-Type: application/json
+
+###
+// admin: Today's order sales
+GET http://localhost:4000/api/v1/admin/order-sales
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcl9uYW1lIjoiQWRtaW4gQWRtaW4iLCJlbWFpbCI6ImFkbWluQGNhZmVhcHAuY29tIiwicm9sZSI6MiwiYWRkcmVzc19pZCI6NCwiaWF0IjoxNjc3NjY3Mzk1fQ.4Yr7fqfPzvUsUy_mttvVXdcTGVefFQBL4WIavE6rerM
+Content-Type: application/json
+
+###
+// admin: Today's order sales
+GET http://localhost:4000/api/v1/admin/order-sales/week
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcl9uYW1lIjoiQWRtaW4gQWRtaW4iLCJlbWFpbCI6ImFkbWluQGNhZmVhcHAuY29tIiwicm9sZSI6MiwiYWRkcmVzc19pZCI6NCwiaWF0IjoxNjc3NjY3Mzk1fQ.4Yr7fqfPzvUsUy_mttvVXdcTGVefFQBL4WIavE6rerM
+Content-Type: application/json
+
+
+###
+// admin: create menu item
+POST http://localhost:4000/api/v1/menu-items
+Content-Type: application/json
+
+{
+  "category_id" : "5",
+  "name": "NEW test salad",
+  "price": "16.00",
+  "popular": 0
+}

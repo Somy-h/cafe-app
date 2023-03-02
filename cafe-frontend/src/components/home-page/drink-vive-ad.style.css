@@ -1,0 +1,9 @@
+
+.drink-container.ani {
+  animation: 0.7s ease ani-to-right;
+}
+
+.vive-img.ani {
+  animation: 1.2s ease ani-to-left;
+}
+

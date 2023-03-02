@@ -1,0 +1,31 @@
+
+
+.menu-item-container {
+  border-style: none none none solid;
+  border-width: 0px 0px 0px 5px;
+}
+
+.menu-item-container.yellow {
+  border-color: #fddb2a;
+}
+
+.menu-item-container.pink {
+  border-color: #f3a5a1;
+}
+
+.menu-item-container.blue {
+  border-color:#84a2a7;
+}
+
+.menu-item-container.green {
+  border-color:#98c979;
+}
+
+.fill-dots {
+  margin: 0.5rem 0.6rem;
+  border-style: none none dotted;
+  border-width: 0px 0px 4px 0px;
+  color: rgba(0, 0, 0, 0.4);
+  flex-grow:1;
+}
+

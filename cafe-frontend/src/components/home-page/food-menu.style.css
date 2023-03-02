@@ -1,0 +1,76 @@
+/* Food Menu Container */
+.foodMenu--container {
+  background: linear-gradient(80deg, #FDCB1F, #f89191 90%),  
+              linear-gradient(70deg, #FDCB1F, #f55a5a 122%);
+}
+
+.foodMenu-white-div {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 960px;
+}
+
+.food-menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-content:space-between;
+  margin: 2rem 1rem;
+  gap: 1.5rem;
+}
+
+.grid-item.active {
+  animation: 1s ease ani-skew;
+}
+
+@keyframes ani-skew {
+  from { transform: skew(-10deg, -10deg);}
+  to { transform: skew(0deg, 0deg); }
+}
+
+.food-menu-items {
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.menu-key {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: start;
+}
+
+.food-menu h3 {
+  display: inline-block;
+  position: relative;
+  text-align: start;
+  z-index: 1;
+}
+
+.barline::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  border-radius: 10px; 
+  height: 10px;
+  width: 100%;
+  z-index: -1;
+}
+
+.barline.menu-yellow::before {
+  background-color: #fddb2a;
+}
+
+.barline.menu-pink::before {
+  background-color: #f3a5a1;
+}
+
+.barline.menu-blue::before {
+  background-color: #84a2a7;
+}
+
+.barline.menu-green::before {
+  background-color: #98c979;
+}

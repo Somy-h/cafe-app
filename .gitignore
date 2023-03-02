@@ -1,0 +1,4 @@
+./cafe-backend/node_modules
+./cafe-backend/.env
+./cafe-frontend/node_modules
+./cafe-frontend/.env

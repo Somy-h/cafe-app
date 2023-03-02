@@ -1,0 +1,40 @@
+/* Initial Screen : Bird Animation */ 
+.init--screen {
+  background-color: #fff;
+  border-radius: 0 0 20px 20px;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: 1s linear 1s forwards move-up-ani;
+}
+
+.left-bird-img {
+  min-width: 150px;
+  max-width: 280px;
+  animation: 1s linear 0s left-birds-ani;
+}
+
+.right-bird-img {
+  min-width: 150px;
+  max-width: 280px;
+  animation: 1s linear 0s right-birds-ani;
+}
+
+@keyframes left-birds-ani {
+  from { transform: translateX(-200%) rotate(40deg);}
+  to { transform: translateX(0) rotate(0);}
+}
+
+@keyframes right-birds-ani {
+  from { transform: translateX(200%) rotate(-40deg);}
+  to { transform: translateX(0);}
+}
+
+@keyframes move-up-ani {
+  from { transform: translateY(0); }
+  to { transform: translateY(-110vh);}
+}
