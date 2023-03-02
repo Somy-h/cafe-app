@@ -1,4 +1,7 @@
 ./cafe-backend/node_modules
+./cafe-backend/package-lock.json
+./cafe-backend/public/images/menu
 ./cafe-backend/.env
+
 ./cafe-frontend/node_modules
 ./cafe-frontend/.env
