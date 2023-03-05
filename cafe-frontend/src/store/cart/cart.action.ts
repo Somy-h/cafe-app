@@ -1,6 +1,7 @@
 import { CART_ACTION_TYPE, CartItemT } from "./cart.types";
+import { createAction, withMatcher, Action, ActionWithPayload } from "../utils/reducer.utils";
 
-const addCartItem = (cartItems: CartItemT[], newCartItem: CartItemT) => {
+const addCartItem = (cartItems: CartItemT[], newCartItem: CartItemT) : CartItemT[] => {
   return [...cartItems, { ...newCartItem }];
 };
 
@@ -8,7 +9,7 @@ const removeCartItem = (
   cartItems: CartItemT[],
   removeItem: CartItemT,
   removeIndex: number
-) => {
+) : CartItemT[] => {
   return cartItems.filter((cartItem, idx) => idx !== removeIndex);
 };
 
@@ -17,15 +18,27 @@ const getNewTotalPrice = (
   qnt: number,
   newQnt: number
 ): number => {
-  return (total * newQnt) / qnt;
-};
+  const fixedString = Number.parseFloat((total * newQnt) / qnt).toFixed(2);
+  return Number.parseFloat(fixedString);
+}; 
 
-export const addItemToCart = (cartItems: CartItemT[], newCartItem: CartItemT) => {
+export type addItemToCartT = ActionWithPayoad<CART_ACTION_TYPE.SET_CART_ITEMS, CartItemT[], CartItemT>;
+export type setCartItemsT = ActionWithPayoad<CART_ACTION_TYPE.SET_CART_ITEMS, CartItemT[], CartItemT, number>;
+export type clearItemFromCartT = ActionWithPayload<CART_ACTION_TYPE.SET_CART_ITEMS, []>;
+export type setOrderTypeT = ActionWithPayload<CART_ACTION_TYPE.SET_ORDER_TYPE, number>;
+export type setDeliveryDateT = ActionWithPayload<CART_ACTION_TYPE.SET_DELIVERY_DATE, Data>;
+
+
+export const setCartItems = withMatcher((cartItems: CartItemT[]) =>
+  createAction(CART_ACTION_TYPE.SET_CART_ITEMS, cartItems));
+
+export const addItemToCart =  (cartItems: CartItemT[], newCartItem: CartItemT) => {
   const updatedCartItem = addCartItem(cartItems, newCartItem);
-  return ({
-    type: CART_ACTION_TYPE.SET_CART_ITEMS,
-    payload: updatedCartItem,
-  });
+  // return createAction(
+  //   CART_ACTION_TYPE.SET_CART_ITEMS,
+  //   updatedCartItem
+  // );
+  return setCartItems(updatedCartItem);
 }
 
 export const removeItemFromCart = (
@@ -34,26 +47,33 @@ export const removeItemFromCart = (
   removeIndex: number
 ) => {
   const updatedCartItem = removeCartItem(cartItems, removeItem, removeIndex);
-  return {
-    type: CART_ACTION_TYPE.SET_CART_ITEMS,
-    payload: updatedCartItem,
-  };
+  // return createAction(
+  //   CART_ACTION_TYPE.SET_CART_ITEMS,
+  //   updatedCartItem
+  // );
+  return setCartItems(updatedCartItem);
 }; 
 
-export const clearItemFromCart = () => ({
-  type: CART_ACTION_TYPE.SET_CART_ITEMS,
-  payload: [],
-});
+// export const clearItemFromCart = () => createAction(
+//   type: CART_ACTION_TYPE.SET_CART_ITEMS,
+//   payload: []
+// );
 
-export const setOrderType = (orderTypeValue:number) => ({
-  type: CART_ACTION_TYPE.SET_ORDER_TYPE,
-  payload: orderTypeValue,
-});
+// export const clearItemFromCart = withMatcher (() => createAction(
+//   CART_ACTION_TYPE.SET_CART_ITEMS, []
+// ));
 
-export const setDeliveryDate = (dateValue: Date) => ({
-  type: CART_ACTION_TYPE.SET_DELIVERY_DATE,
-  payload: dateValue,
-});
+export const clearItemFromCart = () => setCartItems([]);
+
+export const setOrderType = withMatcher ((orderTypeValue:number) => createAction(
+  CART_ACTION_TYPE.SET_ORDER_TYPE,
+  orderTypeValue
+));
+
+export const setDeliveryDate = withMatcher ((dateValue: Date) => createAction(
+  CART_ACTION_TYPE.SET_DELIVERY_DATE,
+  dateValue
+));
 
 export const increaseQuantity = (
   cartItems: CartItemT[],
@@ -76,10 +96,11 @@ export const increaseQuantity = (
         }
       : cartItem
   );
-  return {
-    type: CART_ACTION_TYPE.SET_CART_ITEMS,
-    payload: updatedCartItem,
-  };
+  // return createAction(
+  //   CART_ACTION_TYPE.SET_CART_ITEMS,
+  //   updatedCartItem
+  // );
+  return setCartItems(updatedCartItem);
 }; 
 
 export const decreaseQuantity = (
@@ -103,8 +124,9 @@ export const decreaseQuantity = (
         }
       : cartItem
   );
-  return {
-    type: CART_ACTION_TYPE.SET_CART_ITEMS,
-    payload: updatedCartItem,
-  };
-}; 
+  // return createAction(
+  //   CART_ACTION_TYPE.SET_CART_ITEMS,
+  //   updatedCartItem
+  // );
+  return setCartItems(updatedCartItem);
+};

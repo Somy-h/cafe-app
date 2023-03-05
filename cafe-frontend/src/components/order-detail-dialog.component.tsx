@@ -109,7 +109,7 @@ export default function OrderDetailDialog({
 
   const displayImage = (
     <Avatar src={categoryItem.image_url ?? '/images/drink.png'} alt={categoryItem.name} size='xxl' />
-  )
+  );
 
 
   return (
@@ -119,13 +119,6 @@ export default function OrderDetailDialog({
       onClick={(e) => e.stopPropagation()}
       className=' overflow-y-auto'
     >
-      {
-        // className={
-        //   categoryItem.image_url
-        //     ? `bg-[url("${categoryItem.image_url}")]`
-        //     : "bg-green-50"
-        //  + ' flex-col'}
-      }
       <DialogHeader className='bg-green-50 '>
         <div className='relative flex items-center gap-4'>
           {displayImage}

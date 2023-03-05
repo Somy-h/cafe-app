@@ -1,5 +1,5 @@
-export const USER_ACTION_TYPE = {
-  SET_CURRENT_USER: "user/SET_CURRENT_USER",
+export enum USER_ACTION_TYPE {
+  SET_CURRENT_USER = "user/SET_CURRENT_USER",
 };
 
 export type UserDataT = {
@@ -10,8 +10,8 @@ export type UserDataT = {
   address_id: number;
 }
 
-export const USER_TYPE = {
-  CUSTOMER: 0,
-  CASHIER: 1,
-  ADMIN: 2,
+export enum USER_TYPE {
+  CUSTOMER = 0,
+  CASHIER = 1,
+  ADMIN = 2,
 };

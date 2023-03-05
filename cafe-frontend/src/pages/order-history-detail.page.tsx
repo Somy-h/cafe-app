@@ -181,12 +181,10 @@ export function OrderHistoryDetailPage() {
                   </Typography>
                   <Typography variant='h6' color='black' className='m-4'>
                     $
-                    {Number.parseFloat(onlineOrder.total_price) +
-                      Number.parseFloat(
-                        Number.parseFloat(
-                          onlineOrder.total_price * (TAX / 100)
-                        ).toFixed(2)
-                      )}
+                    { Number.parseFloat(onlineOrder.total_price +
+                        (onlineOrder.total_price * (TAX / 100))
+                      ).toFixed(2)
+                    }
                   </Typography>
                 </div>
               </div>
